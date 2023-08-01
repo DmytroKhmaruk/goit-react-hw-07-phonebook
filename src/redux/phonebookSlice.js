@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addUser, getContacts, removeContact } from './phonebookThunk';
+import { addUser, getContacts, onRemoveContact } from './phonebookThunk';
 
 const initialState = {
     contacts: {
@@ -30,7 +30,7 @@ const contactsSlice = createSlice({
         state.contacts.isLoading = false;
         state.contacts.users.push(action.payload);
       })
-      .addCase(removeContact.fulfilled, (state, action) => {
+      .addCase(onRemoveContact.fulfilled, (state, action) => {
         state.contacts.isLoading = false;
         state.contacts.users = state.contacts.users.filter(
           user => user.id !== action.payload.id

@@ -3,7 +3,7 @@ import {
   deleteUser,
   postNewUser,
   requestContacts,
-} from 'components/Api/Api';
+} from 'Api/Api';
 
 export const getContacts = createAsyncThunk('contacts/getContacts', () =>
   requestContacts()
@@ -13,7 +13,7 @@ export const addUser = createAsyncThunk('contacts/addUser', contactData =>
   postNewUser(contactData)
 );
 
-export const removeContact = createAsyncThunk(
-  'contacts/removeContact',
+export const onRemoveContact = createAsyncThunk(
+  'contacts/onRemoveContact',
   contactId => deleteUser(contactId)
 );

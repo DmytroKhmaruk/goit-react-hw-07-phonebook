@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import { MdDeleteForever } from 'react-icons/md';
 import DeleteStyles from './DeleteStyles'
 
-const Delete = ({ id, name, number, onRemoveContact }) => {
-   const contactId = id || '';
+const Delete = ({ id = '', name, number, onRemoveContact, dispatch }) => {
     return(
-        <DeleteStyles key={contactId}>
+        <DeleteStyles key={id}>
             <p>
               {name}: {number}
             </p>
-        <button type='button' onClick={() => onRemoveContact(contactId)}>
+        <button type='button' onClick={() => dispatch(onRemoveContact(id))}>
           <MdDeleteForever/>
         </button>
           </DeleteStyles>

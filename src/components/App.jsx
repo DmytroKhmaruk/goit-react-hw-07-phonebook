@@ -5,7 +5,7 @@ import Filter from './Filter';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { setFilter } from 'redux/phonebookSlice';
-import { addUser, getContacts, removeContact } from 'redux/phonebookThunk';
+import { addUser, getContacts, onRemoveContact } from 'redux/phonebookThunk';
 import {
   selectContacts,
   selectFilter,
@@ -53,7 +53,7 @@ export default function App() {
       
       <Filter value={filter} handleChangeFilter={handleChangeFilter}/>
       
-      <Contacts contact={filterContacts()} removeContact={removeContact}/>
+      <Contacts dispatch={dispatch} contact={filterContacts()} onRemoveContact={onRemoveContact}/>
 
     </Container>       
   );
